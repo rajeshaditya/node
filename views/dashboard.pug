@@ -1,0 +1,175 @@
+doctype html
+html
+  title A_A_Home
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='css/home.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    style.
+      body {
+      background-color:#2C3E50;#424a5d;#202020;
+      }
+      .navbar {
+      background-color: #2C3E50;#424a5d;#202020;
+      border-bottom-color: #2C3E50;#424a5d;#202020;
+      }
+      .navbar h2 {
+      color:#fd9f1b;
+      }
+      .user {
+      font-family:fantasy;
+      }
+      .row a {
+      text-decoration: none;
+      color: black;
+      }
+      .panel-box {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      border: medium none;
+      }
+      .panel-box .panel-icon {
+      display: table-cell;
+      padding: 29px;
+      width: 1%;
+      vertical-align: top;
+      border-radius: 0px;
+      text-align: center;
+      /*border-bottom: 1px solid #fcfcfc;
+      border-top: 1px solid #fcfcfc;
+      border-right: 1px solid #fcfcfc;*/
+      }
+      .dashboard-stats .stat-icon {
+      line-height: 65px;
+      }
+      .bg-success {
+      background-color: #A3C86D !important;
+      color: #FFF !important;
+      }
+      .success-text {
+      color: #82b33a;
+      }
+      .bg-danger {
+      background-color: #FF7857 !important;
+      color: #FFF !important;
+      }
+      .danger-text {
+      color: #d15b3d;
+      }
+      .bg-lovender {
+      background-color: #8075C4 !important;
+      color: #FFF !important;
+      }
+      .lovender-text {
+      color: #6a5fb1;
+      }
+      .bg-info {
+      background-color: #7ACBEE !important;
+      color: #FFF !important;
+      }
+      .info-text {
+      color: #3ca0cb;
+      }
+      .size-h1 {
+      font-size: 20px;
+      }
+      .panel-icon p.text {
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+      }
+      .panel-icon i {
+      text-align: center;
+      }
+      .panel-icon i {
+      text-align: center;
+      }
+      .text-large {
+      font-size: 50px;
+      }
+      .text-large {
+      font-size: 50px;
+      }
+      .img-circle {
+      width:200px;
+      height:200px;
+      margin-top:150px;
+      border:6px solid lightgrey;
+      }
+      .glyphicon, .fa {
+      font-size: 50px;
+      }
+      .col-lg-12 {
+      color:white;
+      }
+      .panel:hover {
+      transform: scale(1.2);
+      transition-duration: 0.3s;
+      }
+  body
+    // NAVBAR
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        h2 LOGO
+
+    // //NAVBAR
+    // CONTENT
+    div
+      .col-lg-12.col-sm-6.text-center.user
+        center
+          if user.profilepic
+            img.img-circle.img-responsive.img-center(src=user.profilepic, alt='user')
+          else
+            img.img-circle.img-responsive.img-center(src='img/user.jpg', alt='user')
+        h3
+          p #{user.StaffCode}
+          p #{user.StaffName}
+          p #{user.DepartmentName}
+      br
+      center
+        .row.dashboard-stats.container
+          .col-md-3.col-sm-6
+            a(href='/mydata')
+              section.panel.panel-box
+                .panel-left.panel-icon.bg-success
+                  span.glyphicon.glyphicon-user
+                .panel-right.panel-icon.bg-reverse
+                  p.text-muted.no-margin.text
+                    span My
+                  p.size-h1 Data
+          .col-md-3.col-sm-6
+            a(href='#')
+              section.panel.panel-box
+                .panel-left.panel-icon.bg-danger
+                  span.glyphicon.glyphicon-ok-circle
+                .panel-right.panel-icon.bg-reverse
+                  p.text-muted.no-margin.text
+                    span My
+                  p.size-h1 Policy
+          .col-md-3.col-sm-6
+            a(href='#')
+              section.panel.panel-box
+                .panel-left.panel-icon.bg-lovender
+                  i.fa.fa-building-o
+                .panel-right.panel-icon.bg-reverse
+                  p.text-muted.no-margin.text
+                    span My
+                  p.size-h1 Campus
+          .col-md-3.col-sm-6
+            a(href='/mycareer')
+              section.panel.panel-box
+                .panel-left.panel-icon.bg-info
+                  span.glyphicon.glyphicon-education
+                .panel-right.panel-icon.bg-reverse
+                  p.text-muted.no-margin.text
+                    span My
+                  p.size-h1 Career
+    // //CONTENT
+  script.
