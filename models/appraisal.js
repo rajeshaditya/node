@@ -2,7 +2,6 @@ var monk=require('monk');
 var database = require('../db');
 var db=monk(database.db);
 var stinfo =db.get('staffinfo');
-
 module.exports.getUser = function(username,pwd,cb) {
   stinfo.findOne({StaffCode:parseInt(username),Password:pwd}, function(err,docs) {
     if (err) return cb(err)
