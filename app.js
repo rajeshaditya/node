@@ -9,6 +9,7 @@ var fs = require('fs');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var appraisal = require('./routes/appraisal');
 var session = require('client-sessions');
 var app = express();
 
@@ -47,6 +48,7 @@ app.use(function(req,res,next){
     next();
 });
 app.use('/', index);
+app.use('/appraisal', appraisal);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

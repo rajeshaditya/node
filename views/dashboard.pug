@@ -4,24 +4,31 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='css/home.css')
+    link(rel='stylesheet', href='/css/home.css')
+    // Custom styles for this template
+    link(href='assets/css/style.css', rel='stylesheet')
+    link(href='assets/css/style-responsive.css', rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='assets/css/bootstrap.css', rel='stylesheet')
+    // external css
+    link(href='assets/font-awesome/css/font-awesome.css', rel='stylesheet')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
     style.
       body {
-      background-color:#2C3E50;#424a5d;#202020;
+      background-color:#2C3E50;
       }
-      .navbar {
-      background-color: #2C3E50;#424a5d;#202020;
-      border-bottom-color: #2C3E50;#424a5d;#202020;
+      header {
+      background-color: #2C3E50;
+      border-bottom: 1px solid #fd9f1b;
       }
       .navbar h2 {
       color:#fd9f1b;
       }
       .user {
-      font-family:fantasy;
+      font-family:;
       }
       .row a {
       text-decoration: none;
@@ -100,11 +107,14 @@ html
       .img-circle {
       width:200px;
       height:200px;
-      margin-top:150px;
+      margin-top:0px;
       border:6px solid lightgrey;
       }
       .glyphicon, .fa {
       font-size: 50px;
+      }
+      .glyphicon-off {
+      font-size: 20px;
       }
       .col-lg-12 {
       color:white;
@@ -113,15 +123,35 @@ html
       transform: scale(1.2);
       transition-duration: 0.3s;
       }
+      .header .top-menu ul li a {
+      background-color: #2C3E50;
+      border: 1px solid #2C3E50;
+      }
+      .header .top-menu ul li {
+      border-color: 1px solid #2C3E50;
+      }
   body
-    // NAVBAR
-    nav.navbar.navbar-default.navbar-fixed-top
-      .container-fluid
-        h2 LOGO
-
-    // //NAVBAR
+    // header start
+    header.header
+      // logo start
+      a.logo(href='')
+        b LOGO
+      // logo end
+      .top-menu
+        ul.nav.pull-right.top-menu
+          li
+            a.logout(href='/logout')
+              span.glyphicon.glyphicon-off
+    // header end
     // CONTENT
     div
+      br
+      br
+      br
+      br
+      br
+      br
+      br
       .col-lg-12.col-sm-6.text-center.user
         center
           if user.profilepic
@@ -173,3 +203,4 @@ html
                   p.size-h1 Career
     // //CONTENT
   script.
+   script(src='javascripts/jquery.statusbar.js', type='text/javascript')

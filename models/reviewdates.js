@@ -18,3 +18,14 @@ module.exports.setReviewDate=function(vc_date,principal_date,hod_date,faculty_da
    	return err;
    });
 }
+
+module.exports.getReviewDates=function(callback){
+
+reviewdate.findOne({edate:"t"},function(err,dates){
+
+   if(err) callback(err)
+   else
+   callback(null,dates)
+});
+
+}
