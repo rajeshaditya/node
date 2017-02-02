@@ -105,7 +105,7 @@ router.get('/', function(req, res, next) {
     }
 
     else{
-    res.render('appraisalfaculty');
+    res.render('appraisalform');
     }
   }
   else{

@@ -29,14 +29,6 @@ html(lang='en')
     // Custom styles for this template
     link(href='assets/css/style.css', rel='stylesheet')
     link(href='assets/css/style-responsive.css', rel='stylesheet')
-
-    link(href='assets/plugins/bootstrap/bootstrap.css', rel='stylesheet')
-  // Page-Level CSS
-    link(href='assets/plugins/dataTables/dataTables.bootstrap.css', rel='stylesheet')
-    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-    //if lt IE 9
-      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
     script.
       $(function() {
       $('#wrapper .version strong').text('v' + pignoseCalendar.VERSION);
@@ -340,7 +332,8 @@ html(lang='en')
           .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
         // logo start
         a.logo(href='dashbord')
-          b LOGO
+          b
+            img(src='myhub_logo.png',style='height:55px;width:100px;margin-top:-13px')
         // logo end
         .top-menu
           ul.nav.pull-right.top-menu
@@ -653,10 +646,4 @@ html(lang='en')
       $(function(){
       $('select.styled').customSelect();
       });
-    script(src='assets/plugins/jquery-1.10.2.js')
-    script(src='assets/plugins/dataTables/jquery.dataTables.js')
-    script(src='assets/plugins/dataTables/dataTables.bootstrap.js')
-    script.
-      $(document).ready(function () {
-      $('#dataTables-example').dataTable();
-      });
+    

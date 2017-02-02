@@ -10,8 +10,12 @@ var fs = require('fs');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var appraisal = require('./routes/appraisal');
+var appraisalform=require('./routes/appraisalform');
+
+
 var session = require('client-sessions');
 var app = express();
+
 
 //data base
 var monk = require('monk');
@@ -50,6 +54,7 @@ app.use(function(req,res,next){
 app.use('/', index);
 app.use('/appraisal', appraisal);
 app.use('/users', users);
+app.use('/appraisalform', appraisalform);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

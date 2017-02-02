@@ -135,7 +135,8 @@ html
     header.header
       // logo start
       a.logo(href='')
-        b LOGO
+        b
+          img(src='myhub_logo.png',style='height:55px;width:100px;margin-top:-13px')
       // logo end
       .top-menu
         ul.nav.pull-right.top-menu
@@ -175,7 +176,7 @@ html
                     span My
                   p.size-h1 Data
           .col-md-3.col-sm-6
-            a(href='#')
+            a(href='/mypolicy')
               section.panel.panel-box
                 .panel-left.panel-icon.bg-danger
                   span.glyphicon.glyphicon-ok-circle
@@ -184,7 +185,7 @@ html
                     span My
                   p.size-h1 Policy
           .col-md-3.col-sm-6
-            a(href='#')
+            a(href='/mycampus')
               section.panel.panel-box
                 .panel-left.panel-icon.bg-lovender
                   i.fa.fa-building-o
@@ -193,14 +194,23 @@ html
                     span My
                   p.size-h1 Campus
           .col-md-3.col-sm-6
-            a(href='/mycareer')
+            a(href='my_career.html')
               section.panel.panel-box
-                .panel-left.panel-icon.bg-info
-                  span.glyphicon.glyphicon-education
+                .panel-left.panel-icon(style='background-color:#FFB74D;')
+                  span.glyphicon.glyphicon-education(style='color:white;')
                 .panel-right.panel-icon.bg-reverse
                   p.text-muted.no-margin.text
                     span My
                   p.size-h1 Career
+          .col-md-3.col-sm-6
+            a(href='#')
+              section.panel.panel-box
+                .panel-left.panel-icon.bg-info
+                  i.fa.fa-rupee
+                .panel-right.panel-icon.bg-reverse
+                  p.text-muted.no-margin.text
+                    span My
+                  p.size-h1 Finance
     // //CONTENT
   script.
    script(src='javascripts/jquery.statusbar.js', type='text/javascript')

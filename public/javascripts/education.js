@@ -1,13 +1,40 @@
+$(document).ready(function(){
+
+
+
+});
 $('#upload-ssc').on('click', function (){
     $('#upload-ssc').click();
-    $('.pr-bank').text('0%');
-    $('.pr-bank').width('0%');
+   
 });
 
-$('#upload-ssc').on('change', function(){
+$('#uploadbtn-ssc').unbind().bind('click', function(){
 
-  var files = $(this).get(0).files;
+  var files = $('#upload-ssc').get(0).files;
+  var yearofpass= $('#inputsscy').val();
+  var insti=$('#inputssci').val();
+ // alert(yearofpass);
+  //alert(insti);
 
+  var SSC={
+
+    YearOfPass:yearofpass,
+    Institution:insti,
+  };
+  var rj=JSON.stringify(SSC);
+
+  $.post("/uped",{SSC:rj}).done(function(data, textStatus, jqXHR) 
+{
+
+//alert(data);
+}).fail(function(jqXHR, textStatus, errorThrown) 
+{
+    //alert('network connection failed  please try again');
+});
+
+
+
+  //alert(SSC);
   if (files.length > 0){
     // create a FormData object which will be sent as the data payload in the
     // AJAX request
@@ -22,6 +49,7 @@ $('#upload-ssc').on('change', function(){
       formData.append('uploadsssc[]', file, file.name);
      
     }
+
 
     $.ajax({
       url: '/upload/4',
@@ -39,25 +67,9 @@ $('#upload-ssc').on('change', function(){
         // listen to the 'progress' event
         xhr.upload.addEventListener('progress', function(evt) {
 
-          if (evt.lengthComputable) {
-            // calculate the percentage of upload completed
-            var percentComplete = evt.loaded / evt.total;
-            percentComplete = parseInt(percentComplete * 100);
-
-            // update the Bootstrap progress bar with the new percentage
-            $('.pr-bank').text(percentComplete + '%');
-            $('.pr-bank').width(percentComplete + '%');
-
-            // once the upload reaches 100%, set the progress bar text to done
-            if (percentComplete === 100) {
-              //$('.progress-bar').html('Done');
-              $('.pr-bank').html(file.name);
-              $('.upload-btn').prop("disabled", true);
-              jAlert('Your File is uploaded successfully you can download it on your next login ', 'Confirm');
-
-            }
-
-          }
+          $("#uploadbtn-ssc").attr("value","Saved");
+          $(".ssc :input").attr("disabled", true);
+          
 
         }, false);
 
@@ -73,9 +85,30 @@ $('#upload-inter').on('click', function (){
   
 });
 
-$('#upload-inter').on('change', function(){
+$('#uploadbtn-inter').on('click', function(){
 
-  var files = $(this).get(0).files;
+  var files = $('#upload-inter').get(0).files;
+
+  var yearofpass= $('#inputintery').val();
+  var insti=$('#inputinteri').val();
+ // alert(yearofpass);
+  //alert(insti);
+
+  var Inter={
+
+    YearOfPass:yearofpass,
+    Institution:insti,
+  };
+  var rj=JSON.stringify(Inter);
+
+  $.post("/uped",{Inter:rj}).done(function(data, textStatus, jqXHR) 
+{
+
+alert(data);
+}).fail(function(jqXHR, textStatus, errorThrown) 
+{
+    alert('network connection failed  please try again');
+});
 
   if (files.length > 0){
     // create a FormData object which will be sent as the data payload in the
@@ -106,25 +139,9 @@ $('#upload-inter').on('change', function(){
         // listen to the 'progress' event
         xhr.upload.addEventListener('progress', function(evt) {
 
-          if (evt.lengthComputable) {
-            // calculate the percentage of upload completed
-            var percentComplete = evt.loaded / evt.total;
-            percentComplete = parseInt(percentComplete * 100);
-
-            // update the Bootstrap progress bar with the new percentage
-            $('.pr-adhar').text(percentComplete + '%');
-            $('.pr-adhar').width(percentComplete + '%');
-
-            // once the upload reaches 100%, set the progress bar text to done
-            if (percentComplete === 100) {
-               $('.pr-adhar').html(file.name);
-              $('.upload-btnadhar').attr("disabled", true);
-              jAlert('Your File is uploaded successfully you can download it on your next login ', 'Confirm');
-
-            }
-
-          }
-
+          $("#uploadbtn-inter").attr("value","Saved");
+          $(".inter :input").attr("disabled", true);
+          
         }, false);
 
         return xhr;
@@ -136,13 +153,33 @@ $('#upload-inter').on('change', function(){
 
 $('#upload-ug').on('click', function (){
     $('#upload-ug').click();
-    $('.pr-passport').text('0%');
-    $('.pr-passport').width('0%');
+   
 });
 
-$('#upload-ug').on('change', function(){
+$('#uploadbtn-ug').on('click', function(){
 
-  var files = $(this).get(0).files;
+  var files = $('#upload-ug').get(0).files;
+
+  var yearofpass= $('#inputugy').val();
+  var insti=$('#inputugi').val();
+ // alert(yearofpass);
+  //alert(insti);
+
+  var UG={
+
+    YearOfPass:yearofpass,
+    Institution:insti,
+  };
+  var rj=JSON.stringify(UG);
+
+  $.post("/uped",{UG:rj}).done(function(data, textStatus, jqXHR) 
+{
+
+alert(data);
+}).fail(function(jqXHR, textStatus, errorThrown) 
+{
+    alert('network connection failed  please try again');
+});
 
   if (files.length > 0){
     // create a FormData object which will be sent as the data payload in the
@@ -173,23 +210,9 @@ $('#upload-ug').on('change', function(){
         // listen to the 'progress' event
         xhr.upload.addEventListener('progress', function(evt) {
 
-          if (evt.lengthComputable) {
-            // calculate the percentage of upload completed
-            var percentComplete = evt.loaded / evt.total;
-            percentComplete = parseInt(percentComplete * 100);
-
-            // update the Bootstrap progress bar with the new percentage
-            $('.pr-passport').text(percentComplete + '%');
-            $('.pr-passport').width(percentComplete + '%');
-
-            // once the upload reaches 100%, set the progress bar text to done
-            if (percentComplete === 100) {
-               $('.pr-passport').html(file.name);
-              $('.upload-btnpassport').prop("disabled", true);
-              jAlert('Your File is uploaded successfully you can download it on your next login ', 'Confirm');
-            }
-
-          }
+          $("#uploadbtn-ug").attr("value","Saved");
+          $(".ug :input").attr("disabled", true);
+          
 
         }, false);
 
@@ -205,9 +228,31 @@ $('#upload-ug').on('change', function(){
     
 });
 
-$('#upload-pg').on('change', function(){
+$('#uploadbtn-pg').on('click', function(){
 
-  var files = $(this).get(0).files;
+  var files = $('#upload-pg').get(0).files;
+
+  var yearofpass= $('#inputpgy').val();
+  var insti=$('#inputpgi').val();
+ // alert(yearofpass);
+  //alert(insti);
+
+  var PG={
+
+    YearOfPass:yearofpass,
+    Institution:insti,
+  };
+  var rj=JSON.stringify(PG);
+
+  $.post("/uped",{PG:rj}).done(function(data, textStatus, jqXHR) 
+{
+
+alert(data);
+}).fail(function(jqXHR, textStatus, errorThrown) 
+{
+    alert('network connection failed  please try again');
+});
+
 
   if (files.length > 0){
     // create a FormData object which will be sent as the data payload in the
@@ -238,23 +283,9 @@ $('#upload-pg').on('change', function(){
         // listen to the 'progress' event
         xhr.upload.addEventListener('progress', function(evt) {
 
-          if (evt.lengthComputable) {
-            // calculate the percentage of upload completed
-            var percentComplete = evt.loaded / evt.total;
-            percentComplete = parseInt(percentComplete * 100);
-
-            // update the Bootstrap progress bar with the new percentage
-            $('.pr-passport').text(percentComplete + '%');
-            $('.pr-passport').width(percentComplete + '%');
-
-            // once the upload reaches 100%, set the progress bar text to done
-            if (percentComplete === 100) {
-               $('.pr-passport').html(file.name);
-              $('.upload-btnpassport').prop("disabled", true);
-              jAlert('Your File is uploaded successfully you can download it on your next login ', 'Confirm');
-            }
-
-          }
+         $("#uploadbtn-pg").attr("value","Saved");
+          $(".pg :input").attr("disabled", true);
+          
 
         }, false);
 
