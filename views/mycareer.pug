@@ -121,6 +121,11 @@ html(lang='en')
               a.active(href='')
                 i.fa.fa-tasks
                 span Appraisel
+          //
+            li.mt
+              a(href='#wall')
+                i.fa.fa-tasks
+                span Wall
           // sidebar menu end
       // sidebar end
       //
@@ -134,41 +139,57 @@ html(lang='en')
             i
           .row.mt
             .col-lg-12
-            if notstarted
-              h3=notstarted
-            else
-              .container
-                h3 REVIEW DATES
-                table.table.table-bordered
-                  thead
-                    tr
-                      th ACTION
-                      th DATE
-                  tbody
-                    tr
-                      td Vice-Chairman
-                      td 
-                        if dates
-                          p=dates.vcdate
-                    tr
-                      td Principal
-                      td 
-                        if dates
-                          p=dates.principaldate
-                    tr
-                      td HOD
-                      td 
-                        if dates
-                          p=dates.hoddate
-                    tr
-                      td FACULTY
-                      td 
-                        if dates
-                          p=dates.facultydate
-              center
-                a(href='/appraisal')
-                  button.btn.btn-default(type='submit', style='padding:15px; width:150px; background-color:#00aeed; color:white; font-size:16px;') Go to Appraisel
-    // js placed at the end of the document so the pages load faster
+              .tab-content
+                #appraisal.tab-pane.fade.in.active
+                  if notstarted
+                    h3=notstarted
+                  else
+                    .container
+                      h3 REVIEW DATES
+                      table.table.table-bordered
+                        thead
+                          tr
+                            th ACTION
+                            th DATE
+                        tbody
+                          tr
+                            td Vice-Chairman
+                            td 
+                              if dates
+                                p=dates.vcdate
+                          tr
+                            td Principal
+                            td 
+                              if dates
+                                p=dates.principaldate
+                          tr
+                            td HOD
+                            td 
+                              if dates
+                                p=dates.hoddate
+                          tr
+                            td FACULTY
+                            td 
+                              if dates
+                                p=dates.facultydate
+                    center
+                      a(href='/appraisal')
+                        button.btn.btn-default(type='submit', style='padding:15px; width:150px; background-color:#00aeed; color:white; font-size:16px;') Go to Appraisel
+              #wall.tab-pane.fade
+                .row
+                  .col-lg-12
+                    h1.page-header
+                      span.glyphicon.glyphicon-pencil
+                      |  Notice
+                .row
+                  .col-lg-12
+                    .form-group
+                      label Notes
+                        textarea.form-control(rows='5', cols='45')
+                      center
+                        button.btn.btn-primary(type='submit') Save
+                        button.btn.btn-success(type='reset') Reset
+      // js placed at the end of the document so the pages load faster
     script(src='assets/js/jquery.js')
     script(src='assets/js/bootstrap.min.js')
     script(src='assets/js/jquery-ui-1.9.2.custom.min.js')

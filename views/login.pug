@@ -2,6 +2,7 @@ doctype html
 html
   head
     meta
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     style.
       @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
       * {
@@ -234,7 +235,20 @@ html
       transform: translateY(-700px) rotate(600deg);
       }
       }
+      #foot
+      {
+      margin-top:-6%;
+      margin-left:6px;
+      }
+      p{
+      font-size:14px;
+      }
+      #dev{
+      margin-left:88%;
+      }
   body
+    img(src='myhub_logo.png', width='15%', height='15%', style='margin-left:42%; margin-bottom:35%')
+    img(src='adityalogo.png', width='8%', height='8%', style='margin-left:34%;margin-bottom:40%')
     .wrapper
       .container
         h1 Welcome
@@ -247,6 +261,7 @@ html
           input(type='password',name='password',placeholder='Password',required)
           input(type='submit', name='submit',value='Login')
       ul.bg-bubbles
+        li 
         li
         li
         li
@@ -256,12 +271,17 @@ html
         li
         li
         li
-        li
-      center
-        img(src='thub_logo.png',style='margin-top:450px;height:200px;width:250px') 
-        h4 
-          b &copy; Developed by T-Hub, 2017
-    
+    #foot
+      p Forgot Password
+      p
+        i.fa.fa-unlock(aria-hidden='true')
+        | Reset Password
+      p
+        span.glyphicon.glyphicon-envelope
+        |    myhub.helpline@aditya.ac.in
+      p#dev
+        | Developed By 
+        img(src='T-Hub_logo.png', width='18%', height='18%')           
     script.
       $("#login-button").click(function(event){
       event.preventDefault();

@@ -31,7 +31,7 @@ router.post('/subaverage',function(req,res){
 
 router.get('/getData',function(req,res){
 	data=req.session.user;
-	console.log(data);
+	//console.log(data);
 	res.json(data);
 
 });

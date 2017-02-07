@@ -75,9 +75,9 @@ module.exports.getAecStaffAppraisalsForVc = function(data,cb) {
 }
 
 
-module.exports.getAectStaffAppraisalsForVc = function(data,cb) {
+module.exports.getAcetStaffAppraisalsForVc = function(data,cb) {
 
-  var appraisal =db.get('AECT');
+  var appraisal =db.get('ACET');
   appraisal.find(data,function(err,docs) {
     if (err) return cb(err)
     else

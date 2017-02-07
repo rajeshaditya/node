@@ -8,12 +8,12 @@ html(lang='en')
     meta(name='keyword', content='Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina')
     title Admin
     // Bootstrap core CSS
-    link(href='assets/css/bootstrap.css', rel='stylesheet')
+    link(href='/assets/css/bootstrap.css', rel='stylesheet')
     // external css
-    link(href='assets/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(href='/assets/font-awesome/css/font-awesome.css', rel='stylesheet')
     // Custom styles for this template
-    link(href='assets/css/style.css', rel='stylesheet')
-    link(href='assets/css/style-responsive.css', rel='stylesheet')
+    link(href='/assets/css/style.css', rel='stylesheet')
+    link(href='/assets/css/style-responsive.css', rel='stylesheet')
     link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css', rel='stylesheet')
     // change password
     style.
@@ -66,12 +66,12 @@ html(lang='en')
         // logo start
         a.logo(href='index.html')
           b
-            img(src='logo/myhub%20logo.png', style='height:55px; width:100px; margin-top:-13px;')
+            img(src='/myhub_logo.png', style='height:55px; width:100px; margin-top:-13px;')
         // logo end
         .top-menu
           ul.nav.pull-right.top-menu
             li
-              a.logout(href='login.html') Logout
+              a.logout(href='/logout') Logout
       // header end
       //
         **********************************************************************************************************************************************************
@@ -84,8 +84,8 @@ html(lang='en')
           ul#nav-accordion.sidebar-menu
             p.centered
               a(href='home.html')
-                img.img-circle(src='/img/user1.jpg', width='80')
-            h5.centered Babji Neelam
+                img.img-circle(src='/img/user.jpg', width='80')
+            h5.centered Admin
             li.mt
               a.active(data-toggle='tab', href='#dashboard')
                 i.fa.fa-dashboard.fa-fw
@@ -165,7 +165,7 @@ html(lang='en')
                         i.fa.fa-folder-open
                         b  Hello ! 
                         | Welcome Back 
-                        b Babji Neelam 
+                        b  Admin 
                     // end  Welcome
                   .modal-dialog
                     .modal-content.col-md-10
@@ -472,13 +472,13 @@ html(lang='en')
                       br
                       div(style='border-radius: 5px;padding: 20px;background-color: white;width: 50%')
                         form(action='', method='post', autocomplete='off')
-                          label(style='color: #33001a') Staff Code   :
+                          label(style='color: #33001a') Staff Code:
                           input(type='text', id='', name='scfilter', style='width: 17%;padding: 1px 1px;margin: 8px 0;display: inline-block;\
                           border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;')
                           input.btn.btn-primary(type='submit', name='filter1', value='Get')
                           br
                           br
-                          label(style='color: #33001a') College        :
+                          label(style='color: #33001a') College:
                           select(name='clgfilter', style='width: 18%;padding: 1px 1px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;')
                             option(value='aec') AEC
                             option(value='acet') ACET
@@ -486,7 +486,7 @@ html(lang='en')
                           input.btn.btn-primary(type='submit', name='filter2', value='Get')
                           br
                           br
-                          label(style='color: #33001a') Department  :
+                          label(style='color: #33001a') Department:
                           select(name='depfilter', style='width: 18%;padding: 1px 1px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;')
                             option(value='agr') AGR & MIN
                             option(value='civ') CIVIL
@@ -573,16 +573,19 @@ html(lang='en')
         </footer>
         <!--footer end
     // js placed at the end of the document so the pages load faster
-    script(src='assets/js/jquery.js')
-    script(src='assets/js/bootstrap.min.js')
-    script(src='assets/js/jquery-ui-1.9.2.custom.min.js')
-    script(src='assets/js/jquery.ui.touch-punch.min.js')
-    script.include(type='text/javascript', src='assets/js/jquery.dcjqaccordion.2.7.js')
-    script(src='assets/js/jquery.scrollTo.min.js')
-    script(src='assets/js/jquery.nicescroll.js', type='text/javascript')
-    
+    script(src='/assets/js/jquery.js')
+    script(src='/assets/js/bootstrap.min.js')
+    script(src='/assets/js/jquery-ui-1.9.2.custom.min.js')
+    script(src='/assets/js/jquery.ui.touch-punch.min.js')
+    script.include(type='text/javascript', src='/assets/js/jquery.dcjqaccordion.2.7.js')
+    script(src='/assets/js/jquery.scrollTo.min.js')
+    script(src='/assets/js/jquery.nicescroll.js', type='text/javascript')
+    // Page-Level Plugin Scripts
+    script(src='/assets/plugins/morris/raphael-2.1.0.min.js')
+    script(src='/assets/plugins/morris/morris.js')
+    script(src='/assets/scripts/dashboard-demo.js')
     // common script for all pages
-    script(src='assets/js/common-scripts.js')
+    script(src='/assets/js/common-scripts.js')
     // script for this page
     script.
       //custom select box

@@ -42,42 +42,44 @@ html(lang='en')
       var $calendar = obj.calendar;
       var $box = $calendar.parent().siblings('.box').show();
       var text = 'You choose date ';
-
       var temp;
       var temp2;
       var temp3;
       var temp4;
       if(date[0] !== null) {
       text += date[0].format('DD-MM-YYYY');
-      temp0=date[0].format('YYYY-MM-DD');
       temp= date[0].format('MM-DD-YYYY');
       temp2= date[0].format('MM-DD-YYYY');
       temp3= date[0].format('MM-DD-YYYY');
       temp4=date[0].format('DD-MM-YYYY');
-      temp=moment(temp).subtract(5, 'days').format('DD-MM-YYYY'); // 01/09/2017
-      temp2=moment(temp2).subtract(10, 'days').format('DD-MM-YYYY'); // 01/09/2017
-      temp3=moment(temp3).subtract(15, 'days').format('DD-MM-YYYY'); // 01/09/2017
-      document.getElementById("demo").innerHTML=temp;
-      document.getElementById("demo2").innerHTML=temp2;
-      document.getElementById("demo3").innerHTML=temp3;
+      temp=moment(temp).subtract(5, 'days').format('YYYY-MM-DD'); // 01/09/2017
+      temp2=moment(temp2).subtract(10, 'days').format('YYYY-MM-DD'); // 01/09/2017
+      temp3=moment(temp3).subtract(15, 'days').format('YYYY-MM-DD'); // 01/09/2017
+      document.getElementById("demo").value=temp;
+      document.getElementById("demo2").value = temp2;
+      document.getElementById("demo3").value=temp3;
       document.getElementById("demo4").innerHTML=temp4;
-
       }
+
       $("#revdate").click(function(){
 
         if(temp!==null){
             //alert(temp);
-          $.post("/reviewdate",{date:temp0}).done(function(data, textStatus, jqXHR) 
-           {
+            var princi=$('#demo').val();
+            var hod=$('#demo2').val();
+            var faculty=$('#demo3').val();
+
+          $.post("/reviewdate",{vcdate:temp4,principal:princi,hoddate:hod,facultydate:faculty}).done(function(data, textStatus, jqXHR) 
+           {           
            
-           alert("review date changed success");
            }).fail(function(jqXHR, textStatus, errorThrown) 
            {
-             alert('failed');
-           });
-
+          });
+          alert("Review date changed");
         }
       });
+
+
       if(date[0] !== null && date[1] !== null) {
       text += ' ~ ';
       } else if(date[0] === null && date[1] == null) {
@@ -299,6 +301,99 @@ html(lang='en')
       padding: 0;
       list-style: none;
       }
+      .row a {
+      text-decoration: none;
+      color: black;
+      }
+      .panel-box {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      border: medium none;
+      }
+      .panel-box .panel-icon {
+      display: table-cell;
+      padding: 39px;
+      width: 1%;
+      vertical-align: top;
+      border-radius: 0px;
+      text-align: center;
+      /*border-bottom: 1px solid #fcfcfc;
+      border-top: 1px solid #fcfcfc;
+      border-right: 1px solid #fcfcfc;*/
+      }
+      .dashboard-stats .stat-icon {
+      line-height: 65px;
+      }
+      .bg-success {
+      background-color: #A3C86D !important;
+      color: #FFF !important;
+      }
+      .success-text {
+      color: #82b33a;
+      }
+      .bg-danger {
+      background-color: #FF7857 !important;
+      color: #FFF !important;
+      }
+      .danger-text {
+      color: #d15b3d;
+      }
+      .bg-lovender {
+      background-color: #8075C4 !important;
+      color: #FFF !important;
+      }
+      .lovender-text {
+      color: #6a5fb1;
+      }
+      .bg-info {
+      background-color: #7ACBEE !important;
+      color: #FFF !important;
+      }
+      .info-text {
+      color: #3ca0cb;
+      }
+      .size-h1 {
+      font-size: 20px;
+      }
+      .panel-icon p.text {
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+      }
+      .panel-icon i {
+      text-align: left;
+      }
+      .panel-icon i {
+      text-align: left;
+      }
+      .text-large {
+      font-size: 50px;
+      }
+      .text-large {
+      font-size: 50px;
+      }
+      
+      .glyphicon, .fa {
+      font-size: 50px;
+      }
+      .glyphicon-off {
+      font-size: 20px;
+      }
+      
+      .panel:hover {
+      transform: scale(1.2);
+      transition-duration: 0.3s;
+      }
+      .header .top-menu ul li a {
+      background-color: #2C3E50;
+      border: 1px solid #2C3E50;
+      }
+      .header .top-menu ul li {
+      border-color: 1px solid #2C3E50;
+      }
     script(type='text/javascript').
       $(document).ready(function(){
       $(".first_tab").champ();
@@ -362,6 +457,15 @@ html(lang='en')
               a.active(data-toggle='tab', href='#personaldata')
                 i.fa.fa-user
                 span Appraisal
+            li.mt
+              a(data-toggle='tab', href='#notice')
+                i.fa.fa-user
+                span Notice
+            li.mt
+              a(data-toggle='tab', href='#wall')
+                i.fa.fa-user
+                span Wall
+            
             //
               <li class="sub-menu">
               <a data-toggle="tab" href="#education">
@@ -449,14 +553,14 @@ html(lang='en')
                                     if aec
                                       each member in aec
                                         tr
-                                          td #{member.name}
+                                          td jagadeesh
                                           td
                                             center
-                                              a(href="appraisal/" + member._id)
+                                              a(href="/appraisal3")
                                                 button.btn.btn-default(type='submit', style=' background-color:#00aeed; color:white; font-size:16px;') REVIEW
-                                              a(href="appraisal/" + member._id)
+                                              a(href="")
                                                 button.btn.btn-default(type='submit', style=' background-color:#00CC00; color:white; font-size:16px;') APROVE
-                                              a(href="appraisal/" + member._id)
+                                              a(href="")
                                                 button.btn.btn-default(type='submit', style=' background-color:#CC0000; color:white; font-size:16px;') REJECT
                                       else
                                         h2 no data found
@@ -564,19 +668,121 @@ html(lang='en')
                                   table
                                     tr
                                       td VICE-CHAIRMAN
-                                      td#demo4 00-00-0000
+                                      td#demo4
                                     tr
                                       td PRINCIPAL
-                                      td#demo 00-00-0000
+                                      td
+                                        input#demo(type='date')
                                     tr
                                       td HOD
-                                      td#demo2 00-00-0000
+                                      td
+                                        input#demo2(type='date')
                                     tr
                                       td FACULTY
-                                      td#demo3 00-00-0000
-                                button.btn.btn-primary.btn-lg(type='button',id='revdate') Submit
-                #education.tab-pane.fade
-                  h3 Content yet to be placed..!!
+                                      td
+                                        input#demo3(type='date')
+                                button#revdate.btn.btn-primary.btn-lg(type='button') Submit
+                #notice.tab-pane.fade
+                  .row
+                    // Page Header
+                    .col-lg-12
+                      h1.page-header
+                        span.glyphicon.glyphicon-pencil
+                        |  Notice
+                    // End Page Header
+                  .row
+                    // Welcome
+                    .col-lg-12
+                      .form-group
+                        label Notes
+                        textarea.form-control(rows='5', cols='45')
+                      center
+                        button.btn.btn-primary(type='submit') Post
+                        
+                #wall.tab-pane.fade(autoscrool='off')
+                  br
+                  .row.dashboard-stats.container
+                    .col-md-3.col-sm-6
+                      a(href='/mydata')
+                        section.panel.panel-box
+                          .panel-left.panel-icon.bg-success
+                          .panel-right.panel-icon.bg-reverse
+                            p.text-muted.no-margin.text
+                              span CSE
+                            p.size-h1 Wall
+                    .col-md-3.col-sm-6
+                      a(href='/mypolicy')
+                        section.panel.panel-box
+                          .panel-left.panel-icon.bg-danger
+                            
+                          .panel-right.panel-icon.bg-reverse
+                            p.text-muted.no-margin.text
+                              span ECE
+                            p.size-h1 Wall
+                    .col-md-3.col-sm-6
+                      a(href='/mycampus')
+                        section.panel.panel-box
+                          .panel-left.panel-icon.bg-lovender
+                            
+                          .panel-right.panel-icon.bg-reverse
+                            p.text-muted.no-margin.text
+                              span EEE
+                            p.size-h1 Wall
+                    .col-md-3.col-sm-6
+                      a(href='/mycareer')
+                        section.panel.panel-box
+                          .panel-left.panel-icon(style='background-color:#FFB74D;')
+                           
+                          .panel-right.panel-icon.bg-reverse
+                            p.text-muted.no-margin.text
+                              span IT
+                            p.size-h1 Wall
+                    .col-md-3.col-sm-6
+                      a(href='/myfinance')
+                        section.panel.panel-box
+                          .panel-left.panel-icon.bg-info
+                           
+                          .panel-right.panel-icon.bg-reverse
+                            p.text-muted.no-margin.text
+                              span MECH
+                            p.size-h1 Wall
+                    .col-md-3.col-sm-6
+                      a(href='/myfinance')
+                        section.panel.panel-box
+                          .panel-left.panel-icon(style='background-color:#FFB74D;')
+                           
+                          .panel-right.panel-icon.bg-reverse
+                            p.text-muted.no-margin.text
+                              span CIVIL
+                            p.size-h1 Wall
+                    .col-md-3.col-sm-6
+                      a(href='/myfinance')
+                        section.panel.panel-box
+                          .panel-left.panel-icon.bg-success
+                           
+                          .panel-right.panel-icon.bg-reverse
+                            p.text-muted.no-margin.text
+                              span PT
+                            p.size-h1 Wall
+                    .col-md-3.col-sm-6
+                      a(href='/myfinance')
+                        section.panel.panel-box
+                          .panel-left.panel-icon.bg-info
+                           
+                          .panel-right.panel-icon.bg-reverse
+                            p.text-muted.no-margin.text
+                              span AGRI
+                            p.size-h1 Wall
+                    .col-md-3.col-sm-6
+                      a(href='/myfinance')
+                        section.panel.panel-box
+                          .panel-left.panel-icon.bg-lovender
+                           
+                          .panel-right.panel-icon.bg-reverse
+                            p.text-muted.no-margin.text
+                              span MIN
+                            p.size-h1 Wall
+                
                 #bank.tab-pane.fade
                   h3 Upload your Bank PassBook
                   .col-lg-12

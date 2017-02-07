@@ -113,13 +113,14 @@ html
       .sidebar-toggle-box
         .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
       // logo start
-      a.logo(href='index.html')
-        img(src='', alt='MYHUB_LOGO')
+      a.logo(href='/dashbord')
+        img(src='/myhub_logo.png',style='height:55px;width:100px;margin-top:-13px')
+
       // logo end
       .top-menu
         ul.pull-right.top-menu
           li(style='width:88px;')
-            a.logout(href='login.html') Logout
+            a.logout(href='/logout') Logout
       .progress
         div(ng-if='progressBarValue<50')
           .progress-bar.progress-bar-danger.progress-bar-striped.active(role='progressbar', style='width:{{progressBar}}%') {{progressBarValue}}
@@ -286,7 +287,8 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='subjectAverages[0].facultyComment')
               button.btn.btn-default(type='submit', ng-click='saveavg()') Save
-            |                         {{subjectAverages}}
+            //
+              |                         {{subjectAverages}}
             p
         li
           a.accordion-trigger(href='#accordion5', data-accord-group='group1')
@@ -326,7 +328,8 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='proctoringAverages[0].facultyComment')
               button.btn.btn-default(type='submit', ng-click='save()') Save
-            |                         {{proctoringAverages}}
+            //
+              |                         {{proctoringAverages}}
         li
           a.accordion-trigger(href='#accordion6', data-accord-group='group1')
             p(style='color:white;') 4. Student Feedback (Thoery subjects only) :
@@ -365,7 +368,8 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='studentFeedbacks[0].facultyComment')
               button.btn.btn-default(type='button', ng-click='save()') Save
-            |                         {{studentFeedbacks}}
+            //  
+              |                         {{studentFeedbacks}}
         li
           a.accordion-trigger(href='#accordion7', data-accord-group='group1')
             p(style='color:white;') 5. Research Publication & Academic Contributions :
@@ -431,7 +435,8 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='researchPublications[0].facultyComment')
               button.btn.btn-default(type='button', ng-click='save()') Save
-            |                         {{researchPublications}}
+            //  
+              |                         {{researchPublications}}
             br
         li
           a.accordion-trigger(href='#accordion8', data-accord-group='group1')
@@ -476,7 +481,8 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='scopusDetails[0].facultyComment')
               button.btn.btn-default(type='button', ng-click='save()') Save
-            |                         {{scopusDetails}}
+            //  
+              |                         {{scopusDetails}}
             br
         li
           a.accordion-trigger(href='#accordion9', data-accord-group='group1')
@@ -521,7 +527,8 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='nationalJournals[0].facultyComment')
               button.btn.btn-default(type='button', ng-click='save()') Save
-            |                         {{nationalJournals}}
+            //
+              |                         {{nationalJournals}}
             br
         li
           a.accordion-trigger(href='#accordion10', data-accord-group='group1')
@@ -559,7 +566,8 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='reputedConferences[0].facultyComment')
               button.btn.btn-default(type='button', ng-click='save()') Save
-            |                         {{reputedConferences}}
+            //  
+              |                         {{reputedConferences}}
             br
         li
           a.accordion-trigger(href='#accordion11', data-accord-group='group1')
@@ -597,7 +605,8 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='journalConferences[0].facultyComment')
               button.btn.btn-default(type='button', ng-click='save()') Save
-            |                         {{journalConferences}}
+            //  
+              |                         {{journalConferences}}
             br
         li
           a.accordion-trigger(href='#accordion12', data-accord-group='group1')
@@ -635,7 +644,8 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='chapterBooks[0].facultyComment')
               button.btn.btn-default(type='submit', ng-click='save()') Save
-            |                         {{chapterBooks}}
+            //
+              |                         {{chapterBooks}}
         li
           a.accordion-trigger(href='#accordion13', data-accord-group='group1')
             p(style='color:white;')
@@ -667,7 +677,8 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='workshops[0].facultyComment')
               button.btn.btn-default(type='submit', ng-click='save()') Save
-            |                         {{workshops}}
+            //  
+              |                         {{workshops}}
         li
           div(ng-controller='ListController12')
             a.accordion-trigger(href='#accordion14', data-accord-group='group1', ng-click='import_data()')
@@ -734,7 +745,10 @@ html
             .form-group
               textarea#comment.form-control(rows='3', ng-model='additions[0].facultyComment')
               button.btn.btn-default(type='submit', ng-click='save()') Save
-            |                         {{additions}}
+            //  
+              |                         {{additions}}
+      center
+        button.btn.btn-default(type='submit', style=' background-color:#00CC00; color:white; font-size:16px;margin-top:-4%;') submit
       script(src='/appraisal_js/semantic.min.js')
       script(src='/appraisal_js/semantic.editableRecord.js')
       script(type='text/javascript', src='/appraisal_js/QuickAccord.js')
